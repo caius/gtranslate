@@ -15,7 +15,7 @@
 #  it under the terms of the GNU Lesser General Public License as 
 #  published by the Free Software Foundation, either version 3 of
 #  the License, or (at your option) any later version.
-#  
+#   # !> method redefined; discarding old path=
 #  GTranslate is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -53,7 +53,7 @@ module Google
         # Map strings into symbols,
         # and then check they exist in LANGS
         find.map! {|l| l.to_sym }.each do |l|
-          raise InvalidLanguage, "#{l} isn't a supported language sorry" unless valid_language?(l)
+          raise InvalidLanguage, "#{l} isn't a supported language sorry" unless valid_lang?(l)
         end
         
         # Check there is a phrase to actually translate
@@ -68,16 +68,16 @@ module Google
     end
     
     # Takes a string or symbol and returns BOOL
-    def self.valid_language? lang
+    def self.valid_lang? lang
       LANGS.key? lang.to_sym
     end
-    
-    private
 
     # Returns the short code for the language name
     def self.lang_code lang
       LANGS[lang.to_sym]
     end
+    
+    private
 
     # Actually does the heavy lifting
     def self.get_translation opts = {}
