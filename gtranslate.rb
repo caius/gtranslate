@@ -3,6 +3,7 @@
 #  Part of GTranslate
 # 
 #  Google Translate API Wrapper
+#  Version 0.4
 #  
 #  Created by Caius Durling on 2009-01-04.
 #  http://caius.name/ :: dev@caius.name
