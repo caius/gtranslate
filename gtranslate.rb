@@ -3,11 +3,13 @@
 #  Part of GTranslate
 # 
 #  Google Translate API Wrapper
-#  Version 0.4
+#  Version 0.6
 #  
 #  Created by Caius Durling on 2009-01-04.
 #  http://caius.name/ :: dev@caius.name
-#  
+# 
+#  Modified by James Rose on 2009-01-15 
+# 
 #  Copyright 2009 Caius Durling
 #  And Licensed under the LGPL v3
 #
@@ -36,7 +38,7 @@ module Google
     class InvalidLanguage < Exception; end
     class NoPhrasePassed < Exception; end
     # Load the lanuages in from DATA
-    LANGS = YAML.load(File.new(File.expand_path(File.dirname(__FILE__) + "/languages.yml")))
+    LANGS = YAML.load_file((File.dirname(__FILE__) + "/languages.yml"))
 
     # Setup HTTParty stuff
     include HTTParty
@@ -44,25 +46,29 @@ module Google
     default_params :v => "1.0"
     format :json
     
-    def self.method_missing method, *args
-      # english_to_french
-      # Takes two languages (+from+_to_+to+)
-      # and a phrase and returns the translated phrase
-      if find = method.to_s.match(%r{(\w+)_to_(\w+)}x)
+    def self.method_missing(method, *args)
+      
+      if find = method.to_s.match(/(\w+?)?_?to_(\w+)/)
         find = find.captures
-        # Map strings into symbols,
-        # and then check they exist in LANGS
-        find.map! {|l| l.to_sym }.each do |l|
-          raise InvalidLanguage, "#{l} isn't a supported language sorry" unless valid_lang?(l)
+
+        find.map! {|l| l.to_sym if l != nil }.each do |l|
+          raise InvalidLanguage, "#{l} isn't a supported language. Sorry!" unless l == nil || valid_lang?(l)
         end
         
-        # Check there is a phrase to actually translate
         raise NoPhrasePassed, "Pass a phrase to translate" if args.nil? || args.blank? || args.first.empty?
         
-        # Grab the translation and return it
-        get_translation :from => LANGS[find.first], :to => LANGS[find.last], :phrase => args.first
+        if find.first.nil?
+          from = get('http://ajax.googleapis.com/ajax/services/language/detect', :query => {
+            :q => args.first,
+            :v => "1.0"
+          })["responseData"]["language"]
+        else
+          from = find.first
+        end
+        
+        get_translation :from => LANGS[from], :to => LANGS[find.last], :phrase => args.first
+        
       else
-        # ZOMG its not for us!
         super
       end
     end
