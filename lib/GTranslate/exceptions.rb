@@ -1,5 +1,3 @@
-# Some custom exceptions
-
 module Google
   class Translate
 
