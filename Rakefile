@@ -2,11 +2,11 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('rujitsu', '0.1.7') do | config | 
-  config.description = 'Various helper methods to smooth over Ruby development'
-  config.url = 'http://github.com/rahoub/rujitsu'
-  config.author = 'Brightbox Systems Ltd'
-  config.email = 'hello@brightbox.co.uk'
+Echoe.new('gtranslate', '0.0.0') do | config | 
+  config.description = ''
+  config.url = 'http://github.com/caius/gtranslate'
+  config.author = 'Caius Durling'
+  config.email = 'dev@caius.name'
   config.ignore_pattern = ['tmp/*', 'script/*']
   config.development_dependencies = []
 end
