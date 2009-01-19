@@ -1,33 +1,3 @@
-# 
-#  gtranslate.rb
-#  Part of GTranslate
-# 
-#  Google Translate API Wrapper
-#  Version 0.6
-#  
-#  Created by Caius Durling on 2009-01-04.
-#  http://caius.name/ :: dev@caius.name
-# 
-#  Modified by James Rose on 2009-01-15 
-# 
-#  Copyright 2009 Caius Durling
-#  And Licensed under the LGPL v3
-#
-#  GTranslate is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU Lesser General Public License as 
-#  published by the Free Software Foundation, either version 3 of
-#  the License, or (at your option) any later version.
-#   # !> method redefined; discarding old path=
-#  GTranslate is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#  
-#  You should have received a copy of the GNU Lesser General Public
-#  License along with GTranslate.  If not, see 
-#  <http://www.gnu.org/licenses/>.
-#
-
 require "rubygems"
 require "httparty"
 require "yaml"
