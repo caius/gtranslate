@@ -3,8 +3,15 @@ require "httparty"
 require "yaml"
 
 module Google
+  # 
+  # Call a method of the following type:
+  #   {language from}_to_{language to}
+  # 
+  # Example:
+  #   english_to_french
+  # 
   class Translate
-    # Load the lanuages in from DATA
+    # Loads the lanuages in from a data file
     LANGS = YAML.load_file(GEM_ROOT + "/data/languages.yml")
 
     # Setup HTTParty stuff
@@ -13,7 +20,7 @@ module Google
     default_params :v => "1.0"
     format :json
     
-    def self.method_missing(method, *args)
+    def self.method_missing(method, *args) #:nodoc:
       
       if find = method.to_s.match(/(\w+?)?_?to_(\w+)/)
         find = find.captures
