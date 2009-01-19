@@ -4,9 +4,6 @@ require "yaml"
 
 module Google
   class Translate
-    # Some custom exceptions
-    class InvalidLanguage < Exception; end
-    class NoPhrasePassed < Exception; end
     # Load the lanuages in from DATA
     LANGS = YAML.load_file(GEM_ROOT + "/data/languages.yml")
 
