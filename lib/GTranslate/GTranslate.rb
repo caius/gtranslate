@@ -8,7 +8,7 @@ module Google
     class InvalidLanguage < Exception; end
     class NoPhrasePassed < Exception; end
     # Load the lanuages in from DATA
-    LANGS = YAML.load_file((File.dirname(__FILE__) + "/languages.yml"))
+    LANGS = YAML.load_file(GEM_ROOT + "/data/languages.yml")
 
     # Setup HTTParty stuff
     include HTTParty
