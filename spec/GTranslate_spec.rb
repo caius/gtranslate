@@ -26,7 +26,6 @@ describe Google::Translate do
     }.should raise_error(Google::Translate::InvalidLanguage)
   end
   
-    
   def expect_to_make_get_request
     @gt.should_receive(:get_translation).and_return("translated phrase")
   end  
