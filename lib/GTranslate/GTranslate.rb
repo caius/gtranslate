@@ -1,7 +1,3 @@
-require "rubygems"
-require "httparty"
-require "yaml"
-
 module Google
   # 
   # Call a method of the following type:
