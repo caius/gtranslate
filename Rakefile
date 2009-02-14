@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('gtranslate', '0.6.0') do | config | 
+Echoe.new('gtranslate', '0.7.0') do | config | 
   config.description = <<-EOF
     GTranslate uses the Google translate API to translate a phrase from one language to another.
   EOF
@@ -11,7 +11,7 @@ Echoe.new('gtranslate', '0.6.0') do | config |
   config.author = 'Caius Durling'
   config.email = 'dev@caius.name'
   config.ignore_pattern = ['tmp/*', 'script/*']
-  config.development_dependencies = []
+  config.development_dependencies = ["httparty"]
   
 end
 
