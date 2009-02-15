@@ -21,11 +21,12 @@ if ARGV.size != 2
   exit!
 end
 
-from, phrase = ARGV
+to, phrase = ARGV
 
-unless Google::Translate.valid_lang?(from)
+unless Google::Translate.valid_lang?(to)
   usage
   exit!
 end
 
-puts Google::Translate.send("to_#{from}".to_sym, phrase)
+puts "Translating '#{phrase}' to #{to}"
+puts Google::Translate.send("to_#{to}".to_sym, phrase)
