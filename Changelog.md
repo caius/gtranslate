@@ -1,5 +1,14 @@
 # GTranslate Changelog
 
+## v 0.9.0 (2009-02-15)
+
+Added String and Array extensions.
+
+## v 0.8.8 (2009-02-14)
+
+Added specs.
+Renamed to "gtranslate" for requiring purposes.
+
 ## v 0.7.0 (2009-02-14)
 
 Converted into a rubygem.

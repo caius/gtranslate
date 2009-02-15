@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('gtranslate', '0.7.0') do | config | 
+Echoe.new('gtranslate', '0.9.0') do | config | 
   config.description = <<-EOF
     GTranslate uses the Google translate API to translate a phrase from one language to another.
   EOF
