@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# 
+# Translates a phrase into another language
+# 
+
+=begin
+  
+  `gtranslate french "Hello"` # => "Bonjour"
+  `gtranslate fr Hello # => "Bonjour"
+  
+=end
+require "rubygems"
+require "gtranslate"
+
+def usage
+  puts "USAGE: gtranslate <language_to> <phrase>"
+end
+
+if ARGV.size != 2
+  usage
+  exit!
+end
+
+from, phrase = ARGV
+
+unless Google::Translate.valid_lang?(from)
+  usage
+  exit!
+end
+
+puts Google::Translate.send("to_#{from}".to_sym, phrase)
