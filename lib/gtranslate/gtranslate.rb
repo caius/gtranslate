@@ -6,7 +6,7 @@ module Google
   # Example:
   #   english_to_french
   # 
-  class Translate
+  module Translate
     # Loads the lanuages in from a data file
     LANGS = YAML.load_file(GEM_ROOT + "/data/languages.yml")
 

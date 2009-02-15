@@ -10,8 +10,8 @@ rescue LoadError => e
 end
 
 
-require GEM_ROOT + "/lib/GTranslate/GTranslate"
-require GEM_ROOT + "/lib/GTranslate/exceptions"
+require GEM_ROOT + "/lib/gtranslate/gtranslate"
+require GEM_ROOT + "/lib/gtranslate/exceptions"
 
 module Google
 end

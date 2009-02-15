@@ -1,5 +1,5 @@
 module Google
-  class Translate
+  module Translate
 
     class NoPhrasePassed < Exception
     end
