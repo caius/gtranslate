@@ -8,10 +8,10 @@ describe Google::Translate do
   
   it "should return a string" do
     expect_to_make_get_request
-    response = @gt.to_french("Hello")
+    r = @gt.to_french("Hello")
     
-    response.should be_a_kind_of(String)
-    response.should == "translated phrase"
+    r.should be_a_kind_of(String)
+    r.should == "translated phrase"
   end
     
   it "should raise when no phrase passed" do
