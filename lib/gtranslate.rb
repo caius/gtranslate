@@ -1,4 +1,4 @@
-GEM_ROOT = File.expand_path(File.dirname(__FILE__) + "/../")
+GEM_ROOT = File.expand_path(File.dirname(__FILE__) + "/../") unless Kernel.const_defined?(:GEM_ROOT)
 
 require "yaml"
 require "rubygems"
